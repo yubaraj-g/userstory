@@ -18,8 +18,17 @@ code {
 }
 
 ::-webkit-scrollbar {
+  background-color: rgba(0, 0, 255, 0.3);
+  width: 7px;
+  border: 1px solid white;
+  border-radius: 5px;
+  padding: 1px;
+}
+
+::-webkit-scrollbar-thumb {
   background-color: blue;
   width: 5px;
+  border-radius: 5px;
 }
 
 @tailwind utilities;
