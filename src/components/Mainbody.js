@@ -1,20 +1,16 @@
 import React, { useState } from 'react'
 
 function Mainbody() {
-
     const [text, setText] = useState("write a user story with acceptance criteria about crm ");
 
-    const handleOnChange = (typing) => {
+    function handleOnChange(typing) {
         setText(typing.target.value);
     }
 
-    const handleCopy = () => {
-        // let v = document.getElementById("resultbox");
-        // v.select();
-        // navigator.clipboard.writeText(v.value);
-        // window.alert('copied');
-        // text.select();
-        navigator.clipboard.writeText(text.value);
+    let shown = text;
+
+    function handleCopy() {
+        navigator.clipboard.writeText(shown);
     }
 
     return (
@@ -22,7 +18,7 @@ function Mainbody() {
             <h2 className='px-32 w-full flex justify-center mt-12 font-semibold text-lg'>Built-in-Public User Story Generator for Product Managers and Designers.</h2>
 
             <div className='px-32 w-full flex justify-end mb-12'>
-                <p className='text-xs text-gray-500'>Powered by a fine-tuned GPT-3 Model. </p>
+                <p className='text-xs text-gray-500'>Powered by a fine-tuned GPT-3 Model.</p>
             </div>
 
             <h1 className='px-32 font-extrabold text-2xl mt-8 mb-4'>Describe Product or Feature</h1>
@@ -31,14 +27,14 @@ function Mainbody() {
             <form action="/" className='px-32 w-full flex flex-col gap-4 pb-8' method='post'>
                 <textarea className='border border-gray-300 w-full h-40 rounded-md outline-1 outline-slate-400 px-4 py-3 text-sm' id='textInput' onChange={handleOnChange} value={text}></textarea>
 
-                <button className='bg-indigo-700 mx-auto text-white font-bold text-md py-2 w-full rounded-md hover:bg-indigo-900 outline-none hover:outline-2 hover:outline-indigo-400 shaodw-lg' type='submit'>Create User Story</button>
+                <button className='bg-indigo-700 mx-auto text-white font-bold text-md py-2 w-full rounded-md hover:bg-indigo-900 outline-none hover:outline-4 hover:outline-indigo-400 shaodw-lg' type='submit'>Create User Story</button>
             </form>
 
             <div className='px-32 w-full flex flex-col items-center'>
                 <p className='text-gray-400 font-bold text-md w-full flex justify-start'>Result</p>
 
-                <div className='show-results w-full bg-white rounded-md h-56 shadow-md pl-4 pr-12 py-2 overflow-y-auto text-sm' id='resultbox'>
-                    {text}
+                <div className='show-results w-full bg-white rounded-md h-56 shadow-md pl-6 pr-12 py-4 overflow-y-auto text-sm font-bold text-gray-700' id='resultbox'>
+                    {shown}
                 </div>
 
                 <button className='bg-indigo-700 sticky w-10 h-9 flex justify-center items-center rounded-md hover:bg-gray-900 -mt-52 ml-auto mr-4 shadow-sm' onClick={handleCopy}>
