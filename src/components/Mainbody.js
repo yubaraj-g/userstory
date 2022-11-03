@@ -11,6 +11,7 @@ function Mainbody() {
 
     function handleCopy() {
         navigator.clipboard.writeText(shown);
+        window.alert('copied.');
     }
 
     return (
